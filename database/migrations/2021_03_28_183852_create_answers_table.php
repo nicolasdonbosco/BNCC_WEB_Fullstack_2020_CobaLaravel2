@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKomenquestionTable extends Migration
+class CreateAnswersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateKomenquestionTable extends Migration
      */
     public function up()
     {
-        Schema::create('questionsans', function (Blueprint $table) {
+        Schema::create('answer', function (Blueprint $table) {
             $table->id();
             $table->string('isi');
             $table->timestamps();
@@ -21,7 +21,7 @@ class CreateKomenquestionTable extends Migration
             $table->unsignedBigInteger("profil_id");
         });
 
-        Schema::create('questionsans', function (Blueprint $table) {
+        Schema::create('answer', function (Blueprint $table) {
             $table->foreign("profil_id")->references('profil_id')->on('questions');
         });
     }
@@ -33,6 +33,6 @@ class CreateKomenquestionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questionsans');
+        Schema::dropIfExists('answer');
     }
 }

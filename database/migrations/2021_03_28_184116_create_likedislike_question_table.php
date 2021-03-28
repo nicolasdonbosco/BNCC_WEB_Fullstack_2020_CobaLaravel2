@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFotoToUsers extends Migration
+class CreateLikedislikeQuestionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddFotoToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('foto');
+        Schema::create('likedislikequestion', function (Blueprint $table) {
+            $table->unsignedBigInteger('pertanyaan_id');
+            $table->unsignedBigInteger('profil_id');
+            $table->unsignedBigInteger('poin');
         });
     }
 
@@ -25,8 +27,6 @@ class AddFotoToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('likedislikequestion');
     }
 }
