@@ -18,7 +18,7 @@ class CreateQuestionsTable extends Migration
             $table->string('judul');
             $table->string('isi');
             $table->unsignedBigInteger('jawabantepat');
-            $table->unsignedBigInteger("profil_id");
+            $table->unsignedBigInteger('profil_id');
             $table->timestamps();
         });
         Schema::table('questions', function (Blueprint $table) {
